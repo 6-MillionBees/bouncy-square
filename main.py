@@ -5,7 +5,7 @@
 import pygame as pg
 import sys
 import config as c
-from ship import Ship
+from bounce import Square
 pg.init()
 
 class Main:
@@ -18,7 +18,7 @@ class Main:
     self.clock = pg.time.Clock()
 
     # Ship
-    self.ship = Ship([c.WIDTH / 2, c.HEIGHT / 2], c.RED)
+    self.square = Square([c.WIDTH / 2, c.HEIGHT / 2])
 
 
   def run(self):
@@ -32,12 +32,12 @@ class Main:
       # Call events / update running
       self.main_events()
 
-      self.ship.update(dt)
+      self.square.update(dt)
 
       # Fills window
       self.screen.fill(c.WHITE)
 
-      self.ship.draw(self.screen)
+      self.square.draw(self.screen)
 
       # Updates the Display
       pg.display.flip()
@@ -54,6 +54,9 @@ class Main:
       # Quits the game when you press the x
       if event.type == pg.QUIT:
         self.running = False
+      if event.type == pg.MOUSEBUTTONDOWN:
+        self.square.reset()
+
 
   # Exits the code
   def quit(self):
