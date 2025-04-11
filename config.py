@@ -4,7 +4,7 @@
 
 import pygame as pg
 from random import randint
-from math import radians, cos, sin
+from math import radians, cos, sin, sqrt
 
 # Screen size constants
 WIDTH = 500
@@ -61,3 +61,18 @@ def draw_text(surface: pg.Surface, words: str, font: pg.font.Font, pos: tuple, c
   if center:
     pos = text.get_rect(center=center)
   surface.blit(text, pos)
+
+
+def find_dist(cord1, cord2):
+  x_dif = cord1[0] - cord2[0]
+  y_dif = cord1[1] - cord2[1]
+  return sqrt(x_dif ** 2 + y_dif ** 2)
+
+def find_slope(cord1, cord2):
+  x_dif = cord1[0] - cord2[0]
+  y_dif = cord1[1] - cord2[1]
+  try:
+    output = y_dif / x_dif
+  except ValueError:
+    output = None
+  return output

@@ -11,7 +11,7 @@ pg.init()
 class Main:
   def __init__(self):
     # Window
-    self.screen = pg.display.set_mode((c.WIDTH, c.HEIGHT))
+    self.screen = pg.display.set_mode((c.WIDTH, c.HEIGHT), pg.RESIZABLE)
     pg.display.set_caption("PLACEHOLDER")
 
     # Clock
@@ -35,7 +35,7 @@ class Main:
       self.square.update(dt)
 
       # Fills window
-      self.screen.fill(c.WHITE)
+      self.screen.fill(c.BLACK)
 
       self.square.draw(self.screen)
 
@@ -54,8 +54,7 @@ class Main:
       # Quits the game when you press the x
       if event.type == pg.QUIT:
         self.running = False
-      if event.type == pg.MOUSEBUTTONDOWN:
-        self.square.reset()
+      self.square.events(event)
 
 
   # Exits the code
