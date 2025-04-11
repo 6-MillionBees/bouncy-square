@@ -8,9 +8,9 @@ import config as c
 class Square:
   def __init__(self, pos):
     self.image = pg.image.load("DVD_VIDEO_logo.png")
-    self.image = pg.transform.scale(self.image, (44, 20))
+    self.image = pg.transform.scale(self.image, (132, 60))
     self.og_pos = pos
-    self.rect = pg.Rect(pos, (50, 50))
+    self.rect = pg.Rect(pos, (150, 150))
     self.direction = c.rand_vector()
     self.color = (255, 0, 0)
     self.flinging = False
