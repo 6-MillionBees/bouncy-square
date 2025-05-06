@@ -70,7 +70,10 @@ class Square:
       speed = c.find_dist((0, 0), self.reverse_pos) / 100
 
       self.direction = pg.Vector2(self.reverse_pos)
-      self.direction.scale_to_length(speed)
+      try:
+        self.direction.scale_to_length(speed)
+      except ValueError:
+        self.direction = pg.Vector2()
       self.line_start_pos = (-1, -1)
       self.og_mouse_pos = (0, 0)
       self.reverse_pos = (-2, -2)

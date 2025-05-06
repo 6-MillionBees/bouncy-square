@@ -6,10 +6,10 @@ import pygame as pg
 import sys
 import config as c
 from bounce import Square
-pg.init()
 
 class Main:
   def __init__(self):
+    pg.init()
     # Window
     self.screen = pg.display.set_mode((c.WIDTH, c.HEIGHT), pg.RESIZABLE)
     pg.display.set_caption("PLACEHOLDER")
